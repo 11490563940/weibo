@@ -1,6 +1,8 @@
 <?php
 namespace app\index\controller;
 
+use think\Db;
+
 class Index
 {
     public function index()
@@ -10,5 +12,9 @@ class Index
     public function hello()
     {	
         return view('hello');
+    }
+    public function dbuser(){
+        $dbuser1 = Db::name('user')->where('id',1)->find();
+        return json($dbuser1);
     }
 }
