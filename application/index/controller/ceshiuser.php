@@ -4,9 +4,8 @@ namespace app\index\controller;
 
 use think\Controller;
 use think\Request;
-use think\Db;
 
-class Users extends Controller
+class ceshiuser extends Controller
 {
     /**
      * 显示资源列表
@@ -15,16 +14,9 @@ class Users extends Controller
      */
     public function index()
     {
-        // dump(config('database'));
-        $res = Db::connect();
-        dump($res);
+        //
     }
-    public function mysql1()
-    {
-        $result1 = Db::query('select * from weibo where id =1');
-    
-        var_dump($result1);
-    }
+
     /**
      * 显示创建资源表单页.
      *
