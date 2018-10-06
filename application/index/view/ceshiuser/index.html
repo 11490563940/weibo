@@ -16,14 +16,14 @@
         </div>
         <div>
             <label>性别：</label>
-            <select>
+            <select class="sex">
                 <option>男</option>
                 <option>女</option>
             </select>
         </div>
         <div>
             <label>年龄</label>
-            <input type="number" class="sex">
+            <input type="number" class="age">
         </div>
         <div>
             <label>手机号：</label>
@@ -55,19 +55,21 @@
     $(function () {
         $('.submit').on('click',function () {
             var postData = {
-                name:$('.name').val,
-                phone:$('.phone').val,
-                age:$('.age').val
+                name:$(".name").val(),
+                phone:$(".phone").val(),
+                age:$(".age").val(),
+                sex:$('.sex').val()
             }
             console.log(postData)
-            $.ajax({
-                type: 'POST',
-                url: '/index',
-                data: postData,
-                dataType: dataType,
-                success:function (res) {
-                    console.log(res)
-                }
+            jQuery.ajax({
+              type: 'POST',
+              url: '/weibo/public/index/Ceshiuser/appuser',
+              data: postData,
+              dataType: 'json',
+              success: function(res){
+                console.log(res)
+              },
+              
             });
         })
     })

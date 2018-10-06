@@ -4,6 +4,7 @@ namespace app\index\controller;
 
 use think\Controller;
 use think\Request;
+use think\Db;
 
 class ceshiuser extends Controller
 {
@@ -14,7 +15,7 @@ class ceshiuser extends Controller
      */
     public function index()
     {
-        //
+        return view('index');
     }
 
     /**
@@ -81,5 +82,24 @@ class ceshiuser extends Controller
     public function delete($id)
     {
         //
+    }
+    public function appuser()
+    {
+        if (request()->isPost()){
+            if(strlen(input('phone')) != 11){
+                return $this->error('手机号格式不正确');
+            }
+            $data = [
+                'name'=>input('name'),
+                'sex'=>input('sex'),
+                'age'=>input('age'),
+                'phone'=>input('phone')
+            ];
+            if(Db('ceshiuser')-> insert($data)){
+                return $this->success('添加成功','/weibo/public/index/Ceshiuser/index');
+            }else{
+                return $this->error('添加失败');
+            }
+        }
     }
 }
