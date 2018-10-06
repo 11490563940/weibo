@@ -6,7 +6,9 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.min.js"></script>
 </head>
 <body>
     <div>
@@ -35,19 +37,31 @@
     </div>
 
     <div style="margin-top: 100px">
-        <table style="border: 1px solid #000;">
+        <table class="table table-bordered">
+            <caption>列表</caption>
+            <thead>
             <tr>
-                <td></td>
+                <th>id</th>
+                <th>姓名</th>
+                <th>手机号</th>
+                <th>性别</th>
+                <th>年龄</th>
+                <th>操作</th>
             </tr>
+            </thead>
+            <tbody>
             <tr>
-                <td></td>
+                <td>Tanmay</td>
+                <td>Bangalore</td>
+                <td>560001</td>
+                <td>Tanmay</td>
+                <td>Bangalore</td>
+                <td style="width: 200px">
+                    <button onclick="deleteid(1)">删除</button>
+                    <button>修改手机号</button>
+                </td>
             </tr>
-            <tr>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-            </tr>
+            </tbody>
         </table>
     </div>
 </body>
@@ -72,6 +86,20 @@
               
             });
         })
+
     })
+    function deleteid(id) {
+        jQuery.ajax({
+            type:'post',
+            url:'/weibo/public/index/Ceshiuser/delete',
+            data:{
+                id:id
+            },
+            dataType:'json',
+            success:function (res) {
+                alert(res.msg)
+            }
+        })
+    }
 </script>
 </html>
