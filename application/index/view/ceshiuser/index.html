@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <div>
+        <div>
+            <label>姓名：</label>
+            <input type="text" class="name">
+        </div>
+        <div>
+            <label>性别：</label>
+            <select>
+                <option>男</option>
+                <option>女</option>
+            </select>
+        </div>
+        <div>
+            <label>年龄</label>
+            <input type="number" class="sex">
+        </div>
+        <div>
+            <label>手机号：</label>
+            <input type="text" class="phone">
+        </div>
+    </div>
+    <div>
+        <button class="submit">提交</button>
+    </div>
+
+    <div style="margin-top: 100px">
+        <table style="border: 1px solid #000;">
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+</body>
+<script>
+    $(function () {
+        $('.submit').on('click',function () {
+            var postData = {
+                name:$('.name').val,
+                phone:$('.phone').val,
+                age:$('.age').val
+            }
+            console.log(postData)
+            $.ajax({
+                type: 'POST',
+                url: '/index',
+                data: postData,
+                dataType: dataType,
+                success:function (res) {
+                    console.log(res)
+                }
+            });
+        })
+    })
+</script>
+</html>
