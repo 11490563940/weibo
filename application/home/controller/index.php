@@ -1,12 +1,12 @@
 <?php
 
-namespace app\index\controller;
+namespace app\home\controller;
 
 use think\Controller;
-use think\Request;
 use think\Db;
+use think\Request;
 
-class ceshiuser extends Controller
+class index extends Controller
 {
     /**
      * 显示资源列表
@@ -15,7 +15,12 @@ class ceshiuser extends Controller
      */
     public function index()
     {
-        return view('index');
+        $selectContent = Db::query('select * from  article');
+        if($selectContent){
+            return json($selectContent);
+        }else{
+            return '查询错误';
+        }
     }
 
     /**
@@ -82,24 +87,5 @@ class ceshiuser extends Controller
     public function delete($id)
     {
         //
-    }
-    public function appuser()
-    {
-        if (request()->isPost()){
-            if(strlen(input('phone')) != 11){
-                return $this->error('手机号格式不正确');
-            }
-            $data = [
-                'name'=>input('name'),
-                'sex'=>input('sex'),
-                'age'=>input('age'),
-                'phone'=>input('phone')
-            ];
-            if(Db('ceshiuser')-> insert($data)){
-                return $this->success('添加成功','/weibo/public/index/Ceshiuser/index');
-            }else{
-                return $this->error('添加失败');
-            }
-        }
     }
 }
