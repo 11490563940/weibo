@@ -6,7 +6,7 @@ use think\Controller;
 use think\Db;
 use think\Request;
 
-class index extends Controller
+class Index extends Controller
 {
     /**
      * 显示资源列表
