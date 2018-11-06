@@ -2,7 +2,7 @@
     namespace app\index\controller;
 
     class Index extends Controller{
-        function index(){
+        public function index(){
             echo 'aa';
             die;
         }
