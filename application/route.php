@@ -10,7 +10,7 @@
 // +----------------------------------------------------------------------
 use \think\Route;
 
-Route::rule('homeindex','home/Index/index');
+Route::rule('homepage','home/Home/index');
 Route::rule('index','index/Index/index');
 
 //return [

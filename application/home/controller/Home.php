@@ -5,7 +5,7 @@ use think\Controller;
 use think\Db;
 
 
-class Index extends Controller{
+class Home extends Controller{
     public function index(){
         $selectContent = Db::query('select * from  article');
         if($selectContent){
