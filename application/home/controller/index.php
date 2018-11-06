@@ -1,6 +1,6 @@
 <?php
 
-namespace application\home\controller;
+namespace app\home\controller;
 
 use think\Controller;
 use think\Db;
