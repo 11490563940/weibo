@@ -10,8 +10,8 @@
 // +----------------------------------------------------------------------
 use \think\Route;
 
-Route::rule('homeindex','/home/Index/index');
-Route::rule('index','/index/Index/index');
+Route::rule('homeindex','home/Index/index');
+Route::rule('index','index/Index/index');
 
 //return [
 //    '__pattern__' => [
